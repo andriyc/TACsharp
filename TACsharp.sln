@@ -7,7 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACsharp.Framework", "TACsh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACsharp.API", "TACsharp.API\TACsharp.API.csproj", "{1ECA1462-B9D3-4BBE-861F-F7EE4930DE42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACsharp.Tests", "TACsharp.Tests\TACsharp.Tests.csproj", "{23F41B1B-9C1C-48BD-A894-9D5E87049672}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TACsharp.Tests", "TACsharp.Tests\TACsharp.Tests.csproj", "{23F41B1B-9C1C-48BD-A894-9D5E87049672}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1ECA1462-B9D3-4BBE-861F-F7EE4930DE42} = {1ECA1462-B9D3-4BBE-861F-F7EE4930DE42}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
