@@ -2,6 +2,9 @@
 
 namespace TACsharp.API.RestAPI.Models
 {
+    /// <summary>
+    /// ReqRes response object model
+    /// </summary>
     public class ReqResResponse<DataType>
     {
         [JsonProperty("data")]
@@ -11,6 +14,9 @@ namespace TACsharp.API.RestAPI.Models
         public ReqResSupport Support { get; set; }
     }
 
+    /// <summary>
+    /// ReqRes Support object model
+    /// </summary>
     public class ReqResSupport
     {
         [JsonProperty("url")]
@@ -20,6 +26,9 @@ namespace TACsharp.API.RestAPI.Models
         public string Text { get; set; }
     }
 
+    /// <summary>
+    /// ReqRes User object model
+    /// </summary>
     public class ReqResUser
     {
         [JsonProperty("id")]
@@ -38,6 +47,9 @@ namespace TACsharp.API.RestAPI.Models
         public string Avatar { get; set; }
     }
 
+    /// <summary>
+    /// ReqRes Resource object model
+    /// </summary>
     public class ReqResResource
     {
         [JsonProperty("id")]
