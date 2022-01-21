@@ -67,7 +67,7 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Rets a resource by ID
         /// </summary>
-        public object GetResourceByID(int resourceID)
+        public RESTResponse GetResourceByID(int resourceID)
         {
             var request = RESTRequest.GET(ResourceListSource + $"/{resourceID}");
             return GetResponseAsync(request).Result;
