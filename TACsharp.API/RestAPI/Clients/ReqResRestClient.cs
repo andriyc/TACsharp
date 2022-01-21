@@ -1,4 +1,6 @@
-﻿using TACsharp.Framework.Core.REST;
+﻿using System;
+using System.Threading.Tasks;
+using TACsharp.Framework.Core.REST;
 
 namespace TACsharp.API.RestAPI.Clients
 {
@@ -9,6 +11,7 @@ namespace TACsharp.API.RestAPI.Clients
     {
         private const string BaseUrl = "https://reqres.in";
         private const string UserListSource = "/api/users";
+        private const string ResourceListSource = "/api/unknown";
 
         private readonly RESTClient _client;
 
@@ -27,12 +30,20 @@ namespace TACsharp.API.RestAPI.Clients
         }
 
         /// <summary>
+        /// Executes the request asynchronously and returns the Task<RESTResponse>
+        /// </summary>
+        private Task<RESTResponse> GetResponseAsync(RESTRequest request)
+        {
+            return _client.ExecuteAsync(request);
+        }
+
+        /// <summary>
         /// Gets User list via API
         /// </summary>
         public RESTResponse GetUserList()
         {
             var request = RESTRequest.GET(UserListSource);
-            return _client.ExecuteAsync(request).Result;
+            return GetResponseAsync(request).Result;
         }
 
         /// <summary>
@@ -41,7 +52,25 @@ namespace TACsharp.API.RestAPI.Clients
         public RESTResponse GetUserByID(int userID)
         {
             var request = RESTRequest.GET(UserListSource + $"/{userID}");
-            return _client.ExecuteAsync(request).Result;
+            return GetResponseAsync(request).Result;
+        }
+
+        /// <summary>
+        /// Gets resource list via API
+        /// </summary>
+        public RESTResponse GetResourceList()
+        {
+            var request = RESTRequest.GET(ResourceListSource);
+            return GetResponseAsync(request).Result;
+        }
+
+        /// <summary>
+        /// Rets a resource by ID
+        /// </summary>
+        public object GetResourceByID(int resourceID)
+        {
+            var request = RESTRequest.GET(ResourceListSource + $"/{resourceID}");
+            return GetResponseAsync(request).Result;
         }
     }
 }
