@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System.Threading.Tasks;
 using TACsharp.API.RestAPI.Clients;
+using TACsharp.API.RestAPI.Models;
+using TACsharp.Framework.Core.JSON;
 
 namespace TACsharp.Tests.APITests.Fixtures
 {
@@ -26,6 +28,10 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var userID2 = 2;
             var userWithUserID2 = ReqResClient.GetUserByID(userID2);
+            var user = JSONObject
+                        .Parse(userWithUserID2.Content)
+                        .ToObject<ReqResResponse<ReqResUser>>()
+                        .Data;
 
             var userIDNA = 23;
             var userNA = ReqResClient.GetUserByID(userIDNA);
@@ -34,6 +40,10 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var resourceID2 = 2;
             var singleResourceWithID2 = ReqResClient.GetResourceByID(resourceID2);
+            var resource = JSONObject
+                            .Parse(singleResourceWithID2.Content)
+                            .ToObject<ReqResResponse<ReqResResource>>()
+                            .Data;
 
             var resourceIDNA = 23;
             var resourceNA = ReqResClient.GetResourceByID(resourceIDNA);
