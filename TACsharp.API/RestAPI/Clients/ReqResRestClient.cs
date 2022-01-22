@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TACsharp.Framework.Core.REST;
 
 namespace TACsharp.API.RestAPI.Clients
