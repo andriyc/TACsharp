@@ -1,7 +1,5 @@
 using NUnit.Framework;
 using TACsharp.API.RestAPI.Clients;
-using TACsharp.API.RestAPI.Models;
-using TACsharp.Framework.Core.JSON;
 
 namespace TACsharp.Tests.APITests.Fixtures
 {
