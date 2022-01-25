@@ -59,7 +59,8 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResUser>();
+                    .ToObject<Response<ReqResUser>>()
+                    .Data;
         }
 
         /// <summary>
@@ -83,7 +84,8 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResResource>();
+                    .ToObject<Response<ReqResResource>>()
+                    .Data;
         }
     }
 }
