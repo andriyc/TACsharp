@@ -66,9 +66,9 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Gets resource list via API
         /// </summary>
-        public ReqResListResponse<ReqResResource> GetResourceList()
+        public ReqResListResponse<ReqResResource> GetResourceList(int page = 1)
         {
-            var request = RESTRequest.GET(ResourceListSource);
+            var request = RESTRequest.GET(ResourceListSource + $"?page={page}");
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)

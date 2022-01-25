@@ -32,7 +32,8 @@ namespace TACsharp.Tests.APITests.Fixtures
             var userIDNA = 7;
             var userNA = ReqResClient.GetUserByID(userIDNA);
 
-            var resourceListResponse = ReqResClient.GetResourceList();
+            var resourceListResponse1 = ReqResClient.GetResourceList();
+            var resourceListResponse2 = ReqResClient.GetResourceList(2);
 
             var resourceID2 = 2;
             var singleResourceWithID2 = ReqResClient.GetResourceByID(resourceID2);
