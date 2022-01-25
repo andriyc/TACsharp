@@ -23,12 +23,13 @@ namespace TACsharp.Tests.APITests.Fixtures
         [Test]
         public void Test1()
         {
-            var userListResponse = ReqResClient.GetUserList();
+            var userListResponse1 = ReqResClient.GetUserList();
+            var userListResponse2 = ReqResClient.GetUserList(2);
 
             var userID2 = 2;
             var userWithUserID2 = ReqResClient.GetUserByID(userID2);
 
-            var userIDNA = 23;
+            var userIDNA = 7;
             var userNA = ReqResClient.GetUserByID(userIDNA);
 
             var resourceListResponse = ReqResClient.GetResourceList();

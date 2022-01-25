@@ -41,9 +41,9 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Gets User list via API
         /// </summary>
-        public ReqResListResponse<ReqResUser> GetUserList()
+        public ReqResListResponse<ReqResUser> GetUserList(int page = 1)
         {
-            var request = RESTRequest.GET(UserListSource);
+            var request = RESTRequest.GET(UserListSource + $"?page={page}");
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
