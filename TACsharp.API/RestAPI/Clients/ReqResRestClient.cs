@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using TACsharp.API.RestAPI.Models;
+using TACsharp.Framework.Core.JSON;
 using TACsharp.Framework.Core.REST;
 
 namespace TACsharp.API.RestAPI.Clients
@@ -39,37 +41,49 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Gets User list via API
         /// </summary>
-        public RESTResponse GetUserList()
+        public DataList<ReqResUser> GetUserList()
         {
             var request = RESTRequest.GET(UserListSource);
-            return GetResponseAsync(request).Result;
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                    .Parse(response.Content)
+                    .ToObject<DataList<ReqResUser>>();
         }
 
         /// <summary>
         /// Gets User by ID via API
         /// </summary>
-        public RESTResponse GetUserByID(int userID)
+        public ReqResUser GetUserByID(int userID)
         {
             var request = RESTRequest.GET(UserListSource + $"/{userID}");
-            return GetResponseAsync(request).Result;
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                    .Parse(response.Content)
+                    .ToObject<ReqResUser>();
         }
 
         /// <summary>
         /// Gets resource list via API
         /// </summary>
-        public RESTResponse GetResourceList()
+        public DataList<ReqResResource> GetResourceList()
         {
             var request = RESTRequest.GET(ResourceListSource);
-            return GetResponseAsync(request).Result;
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                    .Parse(response.Content)
+                    .ToObject<DataList<ReqResResource>>();
         }
 
         /// <summary>
         /// Rets a resource by ID
         /// </summary>
-        public RESTResponse GetResourceByID(int resourceID)
+        public ReqResResource GetResourceByID(int resourceID)
         {
             var request = RESTRequest.GET(ResourceListSource + $"/{resourceID}");
-            return GetResponseAsync(request).Result;
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                    .Parse(response.Content)
+                    .ToObject<ReqResResource>();
         }
     }
 }
