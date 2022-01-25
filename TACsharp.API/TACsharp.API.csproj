@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
     <Compile Include="RestAPI\Models\DataList.cs" />
+    <Compile Include="RestAPI\Models\Response.cs" />
     <Compile Include="RestAPI\Models\ReqResResource.cs" />
     <Compile Include="RestAPI\Models\ReqResUser.cs" />
     <Compile Include="RestAPI\Models\ReqResSupport.cs" />
