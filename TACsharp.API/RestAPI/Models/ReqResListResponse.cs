@@ -4,10 +4,10 @@ using System.Collections.Generic;
 namespace TACsharp.API.RestAPI.Models
 {
     /// <summary>
-    /// ReqRes Data list model
+    /// ReqRes Data list response model
     /// </summary>
     /// <typeparam name="T">The type of list entity</typeparam>
-    public class DataList<T> : Response<IList<T>>
+    public class ReqResListResponse<T> : ReqResResponse<IList<T>>
     {
         [JsonProperty("page")]
         public int Page { get; set; }

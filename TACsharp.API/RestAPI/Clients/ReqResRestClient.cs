@@ -41,13 +41,13 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Gets User list via API
         /// </summary>
-        public DataList<ReqResUser> GetUserList()
+        public ReqResListResponse<ReqResUser> GetUserList()
         {
             var request = RESTRequest.GET(UserListSource);
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<DataList<ReqResUser>>();
+                    .ToObject<ReqResListResponse<ReqResUser>>();
         }
 
         /// <summary>
@@ -59,20 +59,20 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<Response<ReqResUser>>()
+                    .ToObject<ReqResResponse<ReqResUser>>()
                     .Data;
         }
 
         /// <summary>
         /// Gets resource list via API
         /// </summary>
-        public DataList<ReqResResource> GetResourceList()
+        public ReqResListResponse<ReqResResource> GetResourceList()
         {
             var request = RESTRequest.GET(ResourceListSource);
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<DataList<ReqResResource>>();
+                    .ToObject<ReqResListResponse<ReqResResource>>();
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<Response<ReqResResource>>()
+                    .ToObject<ReqResResponse<ReqResResource>>()
                     .Data;
         }
     }
