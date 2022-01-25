@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-
 namespace TACsharp.API.RestAPI.Models
 {
     /// <summary>
-    /// ReqRes response Data List
+    /// ReqRes Data list model
     /// </summary>
-    /// <typeparam name="T">The type of data entity in the Data List</typeparam>
-    public class DataList<T>
+    /// <typeparam name="T">The type of list entity</typeparam>
+    public class DataList<T> : Response<IList<T>>
     {
         [JsonProperty("page")]
         public int Page { get; set; }
@@ -18,7 +17,5 @@ namespace TACsharp.API.RestAPI.Models
         public int Total { get; set; }
         [JsonProperty("total_pages")]
         public int TotalPages { get; set; }
-        [JsonProperty("data")]
-        public List<T> Data { get; set; }
     }
 }
