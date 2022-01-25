@@ -41,7 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
-    <Compile Include="RestAPI\Models\ReqResModels.cs" />
+    <Compile Include="RestAPI\Models\DataList.cs" />
+    <Compile Include="RestAPI\Models\ReqResResource.cs" />
+    <Compile Include="RestAPI\Models\ReqResUser.cs" />
+    <Compile Include="RestAPI\Models\ReqResSupport.cs" />
+    <Compile Include="RestAPI\Models\ReqResResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TACsharp.Framework\TACsharp.Framework.csproj">
