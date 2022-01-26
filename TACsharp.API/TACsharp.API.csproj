@@ -41,11 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResListResponse.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\NewUserResponse.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\NewUserRequest.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\ReqResListContainer.cs" />
     <Compile Include="RestAPI\Models\ReqRes\ReqResResource.cs" />
     <Compile Include="RestAPI\Models\ReqRes\ReqResUser.cs" />
     <Compile Include="RestAPI\Models\ReqRes\ReqResSupport.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResResponse.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\ReqResContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TACsharp.Framework\TACsharp.Framework.csproj">
