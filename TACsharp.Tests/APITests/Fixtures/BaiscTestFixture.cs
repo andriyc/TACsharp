@@ -39,6 +39,8 @@ namespace TACsharp.Tests.APITests.Fixtures
             var resourceIDNA = 23;
             var resourceNA = ReqResClient.GetResourceByID(resourceIDNA);
 
+            var newCreatedUserResponse = ReqResClient.CreateUser("andrii", "boss");
+
             Assert.Pass();
         }
     }
