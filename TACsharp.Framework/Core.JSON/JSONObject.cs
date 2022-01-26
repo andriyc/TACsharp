@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using System;
 
 namespace TACsharp.Framework.Core.JSON
 {
@@ -29,6 +30,5 @@ namespace TACsharp.Framework.Core.JSON
         {
             return _json.ToObject<T>();
         }
-
     }
 }
