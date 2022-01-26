@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using TACsharp.API.RestAPI.Models;
+using TACsharp.API.RestAPI.Models.ReqRes;
 using TACsharp.Framework.Core.JSON;
 using TACsharp.Framework.Core.REST;
 
@@ -41,13 +42,13 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Gets User list via API
         /// </summary>
-        public ReqResListResponse<ReqResUser> GetUserList(int page = 1)
+        public ReqResListContainer<ReqResUser> GetUserList(int page = 1)
         {
             var request = RESTRequest.GET(UserListSource + $"?page={page}");
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResListResponse<ReqResUser>>();
+                    .ToObject<ReqResListContainer<ReqResUser>>();
         }
 
         /// <summary>
@@ -59,20 +60,20 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResResponse<ReqResUser>>()
+                    .ToObject<ReqResContainer<ReqResUser>>()
                     .Data;
         }
 
         /// <summary>
         /// Gets resource list via API
         /// </summary>
-        public ReqResListResponse<ReqResResource> GetResourceList(int page = 1)
+        public ReqResListContainer<ReqResResource> GetResourceList(int page = 1)
         {
             var request = RESTRequest.GET(ResourceListSource + $"?page={page}");
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResListResponse<ReqResResource>>();
+                    .ToObject<ReqResListContainer<ReqResResource>>();
         }
 
         /// <summary>
@@ -84,8 +85,22 @@ namespace TACsharp.API.RestAPI.Clients
             var response = GetResponseAsync(request).Result;
             return JSONObject
                     .Parse(response.Content)
-                    .ToObject<ReqResResponse<ReqResResource>>()
+                    .ToObject<ReqResContainer<ReqResResource>>()
                     .Data;
+        }
+
+        /// <summary>
+        /// Creates a new user via API
+        /// </summary>
+        public NewUserResponse CreateUser(string name, string job)
+        {
+            var request = RESTRequest
+                            .POST(UserListSource)
+                            .AddBody(NewUserRequest.Create(name, job));
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                            .Parse(response.Content)
+                            .ToObject<NewUserResponse>();
         }
     }
 }
