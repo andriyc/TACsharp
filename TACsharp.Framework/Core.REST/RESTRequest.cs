@@ -21,6 +21,23 @@ namespace TACsharp.Framework.Core.REST
         {
             return new RESTRequest(resource, RESTMethods.Get);
         }
+
+        /// <summary>
+        /// Creates a POST request to a cpecified resource
+        /// </summary>
+        public static RESTRequest POST(string resource)
+        {
+            return new RESTRequest(resource, RESTMethods.Post);
+        }
+
+        /// <summary>
+        /// Adds body to the RESTRequest
+        /// </summary>
+        public RESTRequest AddBody(object body)
+        {
+            _request.AddBody(body);
+            return this;
+        }
     }
 
     /// <summary>
@@ -28,6 +45,7 @@ namespace TACsharp.Framework.Core.REST
     /// </summary>
     internal enum RESTMethods
     {
-        Get = Method.Get
+        Get = Method.Get,
+        Post = Method.Post
     }
 }
