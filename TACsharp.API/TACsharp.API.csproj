@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\UpdatedUserResponse.cs" />
     <Compile Include="RestAPI\Models\ReqRes\NewUserResponse.cs" />
     <Compile Include="RestAPI\Models\ReqRes\NewUserRequest.cs" />
     <Compile Include="RestAPI\Models\ReqRes\ReqResListContainer.cs" />
