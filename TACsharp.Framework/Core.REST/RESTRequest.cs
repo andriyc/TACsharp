@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System;
 
 namespace TACsharp.Framework.Core.REST
 {
@@ -31,6 +32,14 @@ namespace TACsharp.Framework.Core.REST
         }
 
         /// <summary>
+        /// Creates a PUT request to a cpecified resource
+        /// </summary>
+        public static RESTRequest PUT(string recource)
+        {
+            return new RESTRequest(recource, RESTMethods.Put);
+        }
+
+        /// <summary>
         /// Adds body to the RESTRequest
         /// </summary>
         public RESTRequest AddBody(object body)
@@ -46,6 +55,7 @@ namespace TACsharp.Framework.Core.REST
     internal enum RESTMethods
     {
         Get = Method.Get,
-        Post = Method.Post
+        Post = Method.Post,
+        Put = Method.Put
     }
 }
