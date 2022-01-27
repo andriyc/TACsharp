@@ -102,5 +102,19 @@ namespace TACsharp.API.RestAPI.Clients
                             .Parse(response.Content)
                             .ToObject<NewUserResponse>();
         }
+
+        /// <summary>
+        /// Updates the user by ID via API (PUT)
+        /// </summary>
+        public UpdatedUserResponse UpdateUser(int userId, string name, string job)
+        {
+            var request = RESTRequest
+                .PUT(UserListSource + $"/{userId}")
+                .AddBody(NewUserRequest.Create(name, job));
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                            .Parse(response.Content)
+                            .ToObject<UpdatedUserResponse>();
+        }
     }
 }
