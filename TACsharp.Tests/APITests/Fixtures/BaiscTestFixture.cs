@@ -41,6 +41,7 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var newCreatedUserResponse = ReqResClient.CreateUser("andrii", "boss");
             var updatedUserResponse = ReqResClient.UpdateUser(newCreatedUserResponse.Id, "andrew", "super boss");
+            var patchedUserResponse = ReqResClient.PatchUser(newCreatedUserResponse.Id, "ANDREW", "super mega boss");
 
             Assert.Pass();
         }
