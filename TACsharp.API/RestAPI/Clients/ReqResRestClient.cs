@@ -15,6 +15,7 @@ namespace TACsharp.API.RestAPI.Clients
         private const string BaseUrl = "https://reqres.in";
         private const string UserListSource = "/api/users";
         private const string ResourceListSource = "/api/unknown";
+        private const string RegisterUserSource = "/api/register";
 
         private readonly RESTClient _client;
 
@@ -143,6 +144,21 @@ namespace TACsharp.API.RestAPI.Clients
             return JSONObject
                             .Parse(response.Content)
                             .ToObject<UpdatedUserResponse>();
+        }
+
+        /// <summary>
+        /// Registers new user via API (POST)
+        /// </summary>
+        public RegisteredUserResponse RegisterUser(string email, string password)
+        {
+            var request = RESTRequest
+                .POST(RegisterUserSource)
+                .AddBody(RegisterUserRequest.Create(email, password));
+
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                .Parse(response.Content)
+                .ToObject<RegisteredUserResponse>();
         }
     }
 }
