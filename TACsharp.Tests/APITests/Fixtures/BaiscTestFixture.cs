@@ -47,6 +47,8 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var registerUserResponse = ReqResClient.RegisterUser("eve.holt@reqres.in", "pwd");
 
+            var loginUserResponse = ReqResClient.LoginAsUser("eve.holt@reqres.in", "pwd");
+
             Assert.Pass();
         }
     }
