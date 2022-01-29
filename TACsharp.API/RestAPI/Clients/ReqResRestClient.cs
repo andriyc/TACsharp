@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using TACsharp.API.RestAPI.Models;
 using TACsharp.API.RestAPI.Models.ReqRes;
 using TACsharp.Framework.Core.JSON;
@@ -97,6 +98,7 @@ namespace TACsharp.API.RestAPI.Clients
             var request = RESTRequest
                             .POST(UserListSource)
                             .AddBody(NewUserRequest.Create(name, job));
+
             var response = GetResponseAsync(request).Result;
             return JSONObject
                             .Parse(response.Content)
@@ -111,6 +113,22 @@ namespace TACsharp.API.RestAPI.Clients
             var request = RESTRequest
                 .PUT(UserListSource + $"/{userId}")
                 .AddBody(NewUserRequest.Create(name, job));
+
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                            .Parse(response.Content)
+                            .ToObject<UpdatedUserResponse>();
+        }
+
+        /// <summary>
+        /// Updates the user by ID via API (PATCH)
+        /// </summary>
+        public UpdatedUserResponse PatchUser(int userId, string name, string job)
+        {
+            var request = RESTRequest
+                .PATCH(UserListSource + $"/{userId}")
+                .AddBody(NewUserRequest.Create(name, job));
+
             var response = GetResponseAsync(request).Result;
             return JSONObject
                             .Parse(response.Content)
