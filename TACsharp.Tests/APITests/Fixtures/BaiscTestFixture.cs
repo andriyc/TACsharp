@@ -45,6 +45,8 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var deletedUserResponse = ReqResClient.DeleteUser(newCreatedUserResponse.Id);
 
+            var registerUserResponse = ReqResClient.RegisterUser("eve.holt@reqres.in", "pwd");
+
             Assert.Pass();
         }
     }
