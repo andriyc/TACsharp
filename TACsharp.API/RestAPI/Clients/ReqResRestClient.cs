@@ -53,6 +53,16 @@ namespace TACsharp.API.RestAPI.Clients
         }
 
         /// <summary>
+        /// Deletes User by ID via API
+        /// </summary>
+        public RESTResponse DeleteUser(int userID)
+        {
+            var request = RESTRequest.DELETE(UserListSource + $"/{userID}");
+            var response = GetResponseAsync(request).Result;
+            return response;
+        }
+
+        /// <summary>
         /// Gets User by ID via API
         /// </summary>
         public ReqResUser GetUserByID(int userID)
