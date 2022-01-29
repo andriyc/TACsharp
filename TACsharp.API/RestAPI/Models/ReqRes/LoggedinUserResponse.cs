@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TACsharp.API.RestAPI.Models.ReqRes
 {
-    public class RegisteredUserResponse : LoggedinUserResponse
+    public class LoggedinUserResponse
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
+        [JsonProperty("token")]
+        public string Token { get; set; }
     }
 }

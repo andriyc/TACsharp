@@ -41,8 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\LoggedinUserResponse.cs" />
     <Compile Include="RestAPI\Models\ReqRes\RegisteredUserResponse.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\RegisterUserRequest.cs" />
+    <Compile Include="RestAPI\Models\ReqRes\UserLoginRequest.cs" />
     <Compile Include="RestAPI\Models\ReqRes\UpdatedUserResponse.cs" />
     <Compile Include="RestAPI\Models\ReqRes\NewUserResponse.cs" />
     <Compile Include="RestAPI\Models\ReqRes\NewUserRequest.cs" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TACsharp.API.RestAPI.Models.ReqRes
 {
-    public class RegisterUserRequest
+    public class UserLoginRequest
     {
         [JsonProperty("email")]
         public string Email { get; set; }
@@ -15,9 +15,9 @@ namespace TACsharp.API.RestAPI.Models.ReqRes
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        public static RegisterUserRequest Create(string email, string password)
+        public static UserLoginRequest Create(string email, string password)
         {
-            return new RegisterUserRequest()
+            return new UserLoginRequest()
             {
                 Email = email,
                 Password = password
