@@ -16,6 +16,7 @@ namespace TACsharp.API.RestAPI.Clients
         private const string UserListSource = "/api/users";
         private const string ResourceListSource = "/api/unknown";
         private const string RegisterUserSource = "/api/register";
+        private const string LoginUserSource = "/api/login";
 
         private readonly RESTClient _client;
 
@@ -153,12 +154,27 @@ namespace TACsharp.API.RestAPI.Clients
         {
             var request = RESTRequest
                 .POST(RegisterUserSource)
-                .AddBody(RegisterUserRequest.Create(email, password));
+                .AddBody(UserLoginRequest.Create(email, password));
 
             var response = GetResponseAsync(request).Result;
             return JSONObject
                 .Parse(response.Content)
                 .ToObject<RegisteredUserResponse>();
+        }
+
+        /// <summary>
+        /// Looging in as user via API (POST)
+        /// </summary>
+        public object LoginAsUser(string email, string password)
+        {
+            var request = RESTRequest
+                .POST(LoginUserSource)
+                .AddBody(UserLoginRequest.Create(email, password));
+
+            var response = GetResponseAsync(request).Result;
+            return JSONObject
+                .Parse(response.Content)
+                .ToObject<LoggedinUserResponse>();
         }
     }
 }
