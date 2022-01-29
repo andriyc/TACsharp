@@ -48,6 +48,14 @@ namespace TACsharp.Framework.Core.REST
         }
 
         /// <summary>
+        /// Creates a DLETE request to a cpecified resource
+        /// </summary>
+        public static RESTRequest DELETE(string resource)
+        {
+            return new RESTRequest(resource, RESTMethods.Delete);
+        }
+
+        /// <summary>
         /// Adds body to the RESTRequest
         /// </summary>
         public RESTRequest AddBody(object body)
@@ -65,6 +73,7 @@ namespace TACsharp.Framework.Core.REST
         Get = Method.Get,
         Post = Method.Post,
         Put = Method.Put,
-        Patch = Method.Patch
+        Patch = Method.Patch,
+        Delete = Method.Delete
     }
 }
