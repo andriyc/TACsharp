@@ -34,9 +34,17 @@ namespace TACsharp.Framework.Core.REST
         /// <summary>
         /// Creates a PUT request to a cpecified resource
         /// </summary>
-        public static RESTRequest PUT(string recource)
+        public static RESTRequest PUT(string resource)
         {
-            return new RESTRequest(recource, RESTMethods.Put);
+            return new RESTRequest(resource, RESTMethods.Put);
+        }
+
+        /// <summary>
+        /// Creates a PATCH request to a cpecified resource
+        /// </summary>
+        public static RESTRequest PATCH(string resource)
+        {
+            return new RESTRequest(resource, RESTMethods.Patch);
         }
 
         /// <summary>
@@ -56,6 +64,7 @@ namespace TACsharp.Framework.Core.REST
     {
         Get = Method.Get,
         Post = Method.Post,
-        Put = Method.Put
+        Put = Method.Put,
+        Patch = Method.Patch
     }
 }
