@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TACsharp.Tests", "TACsharp.
 		{1ECA1462-B9D3-4BBE-861F-F7EE4930DE42} = {1ECA1462-B9D3-4BBE-861F-F7EE4930DE42}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TACsharp.Bussiness", "Bussiness\TACsharp.Bussiness.csproj", "{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{23F41B1B-9C1C-48BD-A894-9D5E87049672}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23F41B1B-9C1C-48BD-A894-9D5E87049672}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23F41B1B-9C1C-48BD-A894-9D5E87049672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
