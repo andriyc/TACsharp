@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bussiness\TACsharp.Bussiness.csproj" />
     <ProjectReference Include="..\TACsharp.API\TACsharp.API.csproj" />
   </ItemGroup>
 
