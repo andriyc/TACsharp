@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using TACsharp.API.RestAPI.Interfaces;
 using TACsharp.API.RestAPI.Models;
 using TACsharp.API.RestAPI.Models.ReqRes;
 using TACsharp.Framework.Core.JSON;
@@ -10,7 +11,7 @@ namespace TACsharp.API.RestAPI.Clients
     /// <summary>
     /// https://reqres.in/ REST client class
     /// </summary>
-    public class ReqResRestClient
+    public class ReqResRestClient : IRestClient
     {
         private const string BaseUrl = "https://reqres.in";
         private const string UserListSource = "/api/users";
@@ -165,7 +166,7 @@ namespace TACsharp.API.RestAPI.Clients
         /// <summary>
         /// Looging in as user via API (POST)
         /// </summary>
-        public object LoginAsUser(string email, string password)
+        public LoggedinUserResponse LoginAsUser(string email, string password)
         {
             var request = RESTRequest
                 .POST(LoginUserSource)
