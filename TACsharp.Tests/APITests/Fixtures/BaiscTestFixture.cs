@@ -1,5 +1,7 @@
+using Bussiness.Sources;
 using NUnit.Framework;
 using TACsharp.API.RestAPI.Clients;
+using TACsharp.API.RestAPI.Models.ReqRes;
 
 namespace TACsharp.Tests.APITests.Fixtures
 {
@@ -21,6 +23,8 @@ namespace TACsharp.Tests.APITests.Fixtures
         [Test]
         public void Test1()
         {
+            var user = User.New(ReqResClient);
+
             var userListResponse1 = ReqResClient.GetUserList();
             var userListResponse2 = ReqResClient.GetUserList(2);
 
@@ -39,7 +43,10 @@ namespace TACsharp.Tests.APITests.Fixtures
             var resourceIDNA = 23;
             var resourceNA = ReqResClient.GetResourceByID(resourceIDNA);
 
-            var newCreatedUserResponse = ReqResClient.CreateUser("andrii", "boss");
+            var newCreatedUser = ReqResClient.CreateUser("andrii", "boss");
+
+            var newCreatedUserResponse = user.Create("andrii", "boss");
+
             var updatedUserResponse = ReqResClient.UpdateUser(newCreatedUserResponse.Id, "andrew", "super boss");
             var patchedUserResponse = ReqResClient.PatchUser(newCreatedUserResponse.Id, "ANDREW", "super mega boss");
 

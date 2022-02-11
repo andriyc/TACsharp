@@ -1,5 +1,6 @@
 ﻿
 using TACsharp.API.RestAPI.Interfaces;
+using TACsharp.API.RestAPI.Models.ReqRes;
 
 namespace Bussiness.Sources
 {
@@ -17,9 +18,9 @@ namespace Bussiness.Sources
             return new User(client);
         }
 
-        public object Create(string user, string job)
+        public NewUserResponse Create(string name, string job)
         {
-            return _client.CreateUser(user, job);
+            return _client.CreateUser(name, job);
         }
     }
 }
