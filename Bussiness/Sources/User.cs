@@ -1,26 +1,45 @@
 ﻿
 using TACsharp.API.RestAPI.Interfaces;
 using TACsharp.API.RestAPI.Models.ReqRes;
+using TACsharp.Framework.Core.REST;
 
 namespace Bussiness.Sources
 {
     public class User
     {
-        private IRestClient _client;
+        private int Id;
+        private string _name;
+        private string _job;
 
-        private User(IRestClient client)
+        private User(string name, string job)
         {
-            _client = client;
+            _name = name;
+            _job = job;
         }
 
-        public static User New(IRestClient client)
+        public static User New(string name, string job)
         {
-            return new User(client);
+            return new User(name, job);
         }
 
-        public NewUserResponse Create(string name, string job)
+        public NewUserResponse CreateOnEndPoint(IRestClient client)
         {
-            return _client.CreateUser(name, job);
+            return client.CreateUser(_name, _job);
+        }
+
+        public RESTResponse DeleteOnEndPoint(IRestClient client)
+        {
+            return client.DeleteUser(Id);
+        }
+
+        public UpdatedUserResponse UpdateOnEndPoint(IRestClient client)
+        {
+            return client.UpdateUser(Id, _name, _job);
+        }
+
+        public UpdatedUserResponse PatchOnEndPoint(IRestClient client)
+        {
+            return client.PatchUser(Id, _name, _job);
         }
     }
 }
