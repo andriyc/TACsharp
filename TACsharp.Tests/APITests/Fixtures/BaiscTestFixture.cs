@@ -23,8 +23,6 @@ namespace TACsharp.Tests.APITests.Fixtures
         [Test]
         public void Test1()
         {
-            var user = User.New(ReqResClient);
-
             var userListResponse1 = ReqResClient.GetUserList();
             var userListResponse2 = ReqResClient.GetUserList(2);
 
@@ -45,16 +43,22 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var newCreatedUser = ReqResClient.CreateUser("andrii", "boss");
 
-            var newCreatedUserResponse = user.Create("andrii", "boss");
+            var updatedUserResponse = ReqResClient.UpdateUser(newCreatedUser.Id, "andrew", "super boss");
+            var patchedUserResponse = ReqResClient.PatchUser(newCreatedUser.Id, "ANDREW", "super mega boss");
 
-            var updatedUserResponse = ReqResClient.UpdateUser(newCreatedUserResponse.Id, "andrew", "super boss");
-            var patchedUserResponse = ReqResClient.PatchUser(newCreatedUserResponse.Id, "ANDREW", "super mega boss");
-
-            var deletedUserResponse = ReqResClient.DeleteUser(newCreatedUserResponse.Id);
+            var deletedUserResponse = ReqResClient.DeleteUser(newCreatedUser.Id);
 
             var registerUserResponse = ReqResClient.RegisterUser("eve.holt@reqres.in", "pwd");
 
             var loginUserResponse = ReqResClient.LoginAsUser("eve.holt@reqres.in", "pwd");
+
+            //-----------------------------------------------------------------------------------------------------------
+
+            var user = User.New("andrii", "boss");
+            var newCreatedUserResponse = user.CreateOnEndPoint(ReqResClient);
+            var newDeletedUserResponse = user.DeleteOnEndPoint(ReqResClient);
+            var newUpdatedUserResponse = user.UpdateOnEndPoint(ReqResClient);
+            var newPatchedUserResponse = user.PatchOnEndPoint(ReqResClient);
 
             Assert.Pass();
         }
