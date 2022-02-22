@@ -1,7 +1,7 @@
+using Bussiness.Sources;
 using NUnit.Framework;
 using TACsharp.API.RestAPI.Clients;
-using TACsharp.API.RestAPI.Models;
-using TACsharp.Framework.Core.JSON;
+using TACsharp.API.RestAPI.Models.ReqRes;
 
 namespace TACsharp.Tests.APITests.Fixtures
 {
@@ -40,6 +40,25 @@ namespace TACsharp.Tests.APITests.Fixtures
 
             var resourceIDNA = 23;
             var resourceNA = ReqResClient.GetResourceByID(resourceIDNA);
+
+            var newCreatedUser = ReqResClient.CreateUser("andrii", "boss");
+
+            var updatedUserResponse = ReqResClient.UpdateUser(newCreatedUser.Id, "andrew", "super boss");
+            var patchedUserResponse = ReqResClient.PatchUser(newCreatedUser.Id, "ANDREW", "super mega boss");
+
+            var deletedUserResponse = ReqResClient.DeleteUser(newCreatedUser.Id);
+
+            var registerUserResponse = ReqResClient.RegisterUser("eve.holt@reqres.in", "pwd");
+
+            var loginUserResponse = ReqResClient.LoginAsUser("eve.holt@reqres.in", "pwd");
+
+            //-----------------------------------------------------------------------------------------------------------
+
+            var user = User.New("andrii", "boss");
+            var newCreatedUserResponse = user.CreateOnEndPoint(ReqResClient);
+            var newDeletedUserResponse = user.DeleteOnEndPoint(ReqResClient);
+            var newUpdatedUserResponse = user.UpdateOnEndPoint(ReqResClient);
+            var newPatchedUserResponse = user.PatchOnEndPoint(ReqResClient);
 
             Assert.Pass();
         }

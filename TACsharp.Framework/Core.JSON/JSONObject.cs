@@ -29,6 +29,5 @@ namespace TACsharp.Framework.Core.JSON
         {
             return _json.ToObject<T>();
         }
-
     }
 }

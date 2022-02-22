@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TACsharp.API.RestAPI.Models
+namespace TACsharp.API.RestAPI.Models.ReqRes
 {
     /// <summary>
     /// ReqRes Resource object model

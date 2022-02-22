@@ -5,7 +5,7 @@ namespace TACsharp.API.RestAPI.Models
     /// <summary>
     /// ReqRes response object model
     /// </summary>
-    public class ReqResResponse<DataType>
+    public class ReqResContainer<DataType>
     {
         [JsonProperty("data")]
         public DataType Data { get; set; }

@@ -7,7 +7,7 @@ namespace TACsharp.API.RestAPI.Models
     /// ReqRes Data list response model
     /// </summary>
     /// <typeparam name="T">The type of list entity</typeparam>
-    public class ReqResListResponse<T> : ReqResResponse<IList<T>>
+    public class ReqResListContainer<T> : ReqResContainer<IList<T>>
     {
         [JsonProperty("page")]
         public int Page { get; set; }

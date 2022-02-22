@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1ECA1462-B9D3-4BBE-861F-F7EE4930DE42}</ProjectGuid>
+    <ProjectGuid>{5EA3A20F-BAC9-4E48-8910-60551AE7D8BC}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TACsharp.API</RootNamespace>
-    <AssemblyName>TACsharp.API</AssemblyName>
+    <RootNamespace>Bussiness</RootNamespace>
+    <AssemblyName>Bussiness</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,33 +37,19 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RestAPI\Interfaces\IRestClient.cs" />
-    <Compile Include="RestAPI\Clients\ReqResRestClient.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\LoggedinUserResponse.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\RegisteredUserResponse.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\UserLoginRequest.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\UpdatedUserResponse.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\NewUserResponse.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\NewUserRequest.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResListContainer.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResResource.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResUser.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResSupport.cs" />
-    <Compile Include="RestAPI\Models\ReqRes\ReqResContainer.cs" />
+    <Compile Include="Sources\User.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TACsharp.API\TACsharp.API.csproj">
+      <Project>{1ECA1462-B9D3-4BBE-861F-F7EE4930DE42}</Project>
+      <Name>TACsharp.API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TACsharp.Framework\TACsharp.Framework.csproj">
-      <Project>{59ce97ed-0079-46b1-b97f-a7e58253fa80}</Project>
+      <Project>{59CE97ED-0079-46B1-B97F-A7E58253FA80}</Project>
       <Name>TACsharp.Framework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
